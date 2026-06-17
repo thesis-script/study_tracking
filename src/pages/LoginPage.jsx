@@ -102,7 +102,7 @@ export default function LoginPage({ onLogin, forceRole }) {
             <button type="submit" className="btn btn-primary btn-full" style={{padding:14}}>تسجيل الدخول</button>
           </form>
         )}
-        <p style={{textAlign:"center",fontSize:12,color:"var(--text-muted)",marginTop:24}}>نظام تسجيل الحضور والغياب عبر QR Code</p>
+        <p style={{textAlign:"center",fontSize:12,color:"var(--text-muted)",marginTop:24}}>نظام تتبع حضور الطلبة عبر QR Code</p>
       </div>
     </div>
   );
