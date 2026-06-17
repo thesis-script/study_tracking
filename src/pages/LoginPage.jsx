@@ -49,7 +49,6 @@ export default function LoginPage({ onLogin, forceRole }) {
                 {[
                   { id:"admin",   Icon:ShieldCheck,   label:"الإدارة",  desc:"إدارة الطلاب، الأساتذة والتقارير" },
                   { id:"teacher", Icon:BookOpen,       label:"الأستاذ",  desc:"تسجيل الحضور وإدارة الغياب" },
-                  { id:"student", Icon:GraduationCap,  label:"الطالب",   desc:"مسح QR وتتبع الحضور" },
                 ].map(({ id, Icon, label, desc }) => (
                   <div key={id} className={`role-option ${selectedRole===id?"selected":""}`} onClick={()=>handleRoleSelect(id)}>
                     <div className={`role-icon ${id}`}><Icon size={20}/></div>
@@ -63,9 +62,7 @@ export default function LoginPage({ onLogin, forceRole }) {
             <button className="btn btn-primary btn-full" style={{padding:14}} onClick={handleNext}>
               متابعة <ArrowRight size={16} style={{marginRight:8}}/>
             </button>
-            <div style={{textAlign:"center",marginTop:14,fontSize:12,color:"var(--text-secondary)"}}>
-              هل أنت طالب؟ <a href="/student" style={{color:"var(--primary)",fontWeight:600}}>بوابة الطلاب ←</a>
-            </div>
+            
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
@@ -96,11 +93,11 @@ export default function LoginPage({ onLogin, forceRole }) {
               <input className="form-input" type="password" value={password}
                 onChange={e=>{setPassword(e.target.value);setError("");}}/>
             </div>
-            {selectedRole && (
+            {/* {selectedRole && (
               <div style={{fontSize:12,color:"var(--text-secondary)",marginBottom:12,padding:"8px 12px",background:"var(--surface-2)",borderRadius:"var(--radius-sm)"}}>
                 💡 تجربة: <strong>{hints[selectedRole]?.email}</strong> · كلمة المرور: <strong>{hints[selectedRole]?.pass}</strong>
               </div>
-            )}
+            )} */}
             {error && <div style={{color:"var(--danger)",fontSize:13,marginBottom:16,padding:"10px 14px",background:"var(--danger-light)",borderRadius:"var(--radius-sm)"}}>{error}</div>}
             <button type="submit" className="btn btn-primary btn-full" style={{padding:14}}>تسجيل الدخول</button>
           </form>
