@@ -38,7 +38,7 @@ export default function StudentPortal({ user, onLogout }) {
           <img src="/logo-full.png" alt="Logo" style={{width:32,height:32,borderRadius:8}}/>
           <div>
             <div style={{fontWeight:700,fontSize:14,color:"white"}}>بوابة الطلاب</div>
-            <div style={{fontSize:10,color:"rgba(255,255,255,0.6)"}}>Study Tracking</div>
+            <div style={{fontSize:10,color:"rgba(255,255,255,0.6)"}}>Students Attendance Tracking</div>
           </div>
         </div>
         <div style={{display:"flex",alignItems:"center",gap:10}}>

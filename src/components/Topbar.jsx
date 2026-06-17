@@ -1,15 +1,20 @@
-import { Bell, Search } from "lucide-react";
+import { Bell, Menu } from "lucide-react";
 import { useStore } from "../useStore";
 
-export default function Topbar({ title, subtitle, onNotifClick }) {
+export default function Topbar({ title, subtitle, onNotifClick, onMenuClick }) {
   const state = useStore();
   const unread = (state.adminNotifications || []).filter(n => !n.read).length;
 
   return (
     <div className="topbar">
-      <div className="topbar-title">
-        <h1>{title}</h1>
-        {subtitle && <p>{subtitle}</p>}
+      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <button className="hamburger-btn" onClick={onMenuClick} title="القائمة">
+          <Menu size={20} />
+        </button>
+        <div className="topbar-title">
+          <h1>{title}</h1>
+          {subtitle && <p>{subtitle}</p>}
+        </div>
       </div>
       <div className="topbar-actions">
         <button className="icon-btn" onClick={onNotifClick} title="الإشعارات" style={{ position: "relative" }}>

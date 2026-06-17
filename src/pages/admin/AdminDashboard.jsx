@@ -13,23 +13,30 @@ import { useStore } from "../../useStore";
 
 export default function AdminDashboard({ user, onLogout }) {
   const [activeSection, setActiveSection] = useState("overview");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const state = useStore();
   const unread = (state.adminNotifications || []).filter(n => !n.read).length;
 
   const navItems = [
-    { label: "الرئيسية", items: [
-      { id: "overview", label: "لوحة المتابعة", icon: LayoutDashboard },
-      { id: "notifications", label: "إشعارات الأساتذة", icon: Bell, badge: unread || undefined },
-    ]},
-    { label: "الإدارة", items: [
-      { id: "students", label: "الطلاب", icon: Users },
-      { id: "teachers", label: "الأساتذة", icon: Users2 },
-      { id: "modules", label: "المواد والحصص", icon: BookOpen },
-    ]},
-    { label: "الغياب", items: [
-      { id: "justifications", label: "تبريرات الغياب", icon: FileText, badge: 2 },
-      { id: "reports", label: "التقارير", icon: BarChart2 },
-    ]},
+    {
+      label: "الرئيسية", items: [
+        { id: "overview", label: "لوحة المتابعة", icon: LayoutDashboard },
+        { id: "notifications", label: "إشعارات الأساتذة", icon: Bell, badge: unread || undefined },
+      ]
+    },
+    {
+      label: "الإدارة", items: [
+        { id: "students", label: "الطلاب", icon: Users },
+        { id: "teachers", label: "الأساتذة", icon: Users2 },
+        { id: "modules", label: "المواد والحصص", icon: BookOpen },
+      ]
+    },
+    {
+      label: "الغياب", items: [
+        { id: "justifications", label: "تبريرات الغياب", icon: FileText, badge: 2 },
+        { id: "reports", label: "التقارير", icon: BarChart2 },
+      ]
+    },
   ];
 
   const pageTitles = {
@@ -60,10 +67,12 @@ export default function AdminDashboard({ user, onLogout }) {
   return (
     <div className="app-layout">
       <Sidebar navItems={navItems} activeSection={activeSection} onNavigate={setActiveSection}
-        onLogout={onLogout} user={{ name: user.email.split("@")[0], role: "الإدارة" }} />
+        onLogout={onLogout} user={{ name: user.email.split("@")[0], role: "الإدارة" }}
+        mobileOpen={mobileMenuOpen} onCloseMobile={() => setMobileMenuOpen(false)} />
       <div className="main-content">
         <Topbar title={current.title} subtitle={current.subtitle} notifCount={unread}
-          onNotifClick={() => setActiveSection("notifications")} />
+          onNotifClick={() => setActiveSection("notifications")}
+          onMenuClick={() => setMobileMenuOpen(true)} />
         <div className="page-content">{renderPage()}</div>
       </div>
     </div>

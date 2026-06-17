@@ -44,7 +44,7 @@ export default function StudentDashboard({ user, onLogout, attendanceStore, onAt
             <img src="/logo-full.png" alt="Logo" style={{ width: 44, height: 44, borderRadius: "12px" }} />
           </div>
           <div>
-            <h2 style={{ fontSize: 15, fontWeight: 700, color: "white" }}>Study Tracking</h2>
+            <h2 style={{ fontSize: 15, fontWeight: 700, color: "white" }}>Students Attendance Tracking</h2>
             <p style={{ fontSize: 11, color: "rgba(255,255,255,0.5)" }}>QR Attendance</p>
           </div>
         </div>

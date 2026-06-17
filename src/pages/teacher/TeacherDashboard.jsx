@@ -25,23 +25,30 @@ const pageTitles = {
 
 export default function TeacherDashboard({ user, onLogout }) {
   const [activeSection, setActiveSection] = useState("overview");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const state = useStore();
   const recentScans = state.attendanceRecords || [];
 
   const navItems = [
-    { label: "الرئيسية", items: [
-      { id: "overview", label: "لوحة المتابعة", icon: LayoutDashboard },
-      { id: "notifications", label: "الإشعارات", icon: Bell, badge: state.teacherNotifications.filter(n => !n.read).length || undefined },
-      { id: "schedule", label: "الجدول الزمني", icon: Calendar },
-    ]},
-    { label: "الحضور", items: [
-      { id: "attendance", label: "تسجيل الحضور (QR)", icon: QrCode },
-      { id: "students", label: "الطلاب", icon: Users },
-      { id: "stats", label: "الإحصائيات", icon: BarChart2 },
-    ]},
-    { label: "الغياب", items: [
-      { id: "justifications", label: "تبريرات الغياب", icon: FileText, badge: 2 },
-    ]},
+    {
+      label: "الرئيسية", items: [
+        { id: "overview", label: "لوحة المتابعة", icon: LayoutDashboard },
+        { id: "notifications", label: "الإشعارات", icon: Bell, badge: state.teacherNotifications.filter(n => !n.read).length || undefined },
+        { id: "schedule", label: "الجدول الزمني", icon: Calendar },
+      ]
+    },
+    {
+      label: "الحضور", items: [
+        { id: "attendance", label: "تسجيل الحضور (QR)", icon: QrCode },
+        { id: "students", label: "الطلاب", icon: Users },
+        { id: "stats", label: "الإحصائيات", icon: BarChart2 },
+      ]
+    },
+    {
+      label: "الغياب", items: [
+        { id: "justifications", label: "تبريرات الغياب", icon: FileText, badge: 2 },
+      ]
+    },
   ];
 
   const renderPage = () => {
@@ -67,10 +74,13 @@ export default function TeacherDashboard({ user, onLogout }) {
         onNavigate={setActiveSection}
         onLogout={onLogout}
         user={{ name: user.email.split("@")[0], role: "أستاذ" }}
+        mobileOpen={mobileMenuOpen}
+        onCloseMobile={() => setMobileMenuOpen(false)}
       />
       <div className="main-content">
         <Topbar title={current.title} subtitle={current.subtitle} notifCount={recentScans.length}
-          onNotifClick={() => setActiveSection("notifications")} />
+          onNotifClick={() => setActiveSection("notifications")}
+          onMenuClick={() => setMobileMenuOpen(true)} />
         <div className="page-content">{renderPage()}</div>
       </div>
     </div>

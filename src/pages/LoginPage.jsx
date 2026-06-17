@@ -36,7 +36,7 @@ export default function LoginPage({ onLogin, forceRole }) {
       <div className="auth-card">
         <div className="auth-logo">
           <div className="auth-logo-icon"><img src="/logo-full.png" alt="Logo" style={{ width:50, height:50 }} /></div>
-          <div><h1>Study Tracking</h1><p>QR Code Attendance System</p></div>
+          <div><h1>Students Attendance Tracking</h1><p>QR Code Attendance System</p></div>
         </div>
         <h2 className="auth-title">مرحباً بك</h2>
         <p className="auth-subtitle">سجّل دخولك للوصول إلى لوحة التحكم</p>
