@@ -101,8 +101,14 @@ export default function TeacherJustifications() {
         <div style={{marginTop:24,padding:16,background:"var(--primary-light)",borderRadius:"var(--radius)",border:"1px solid rgba(79,106,240,0.2)"}}>
           <div style={{fontWeight:700,marginBottom:12,color:"var(--primary)",fontSize:14}}>سير عمل التبرير</div>
           <div style={{display:"flex",alignItems:"center",gap:8,fontSize:12}}>
-            {["👨‍🎓 الطالب\nيقدم التبرير","👨‍🏫 الأستاذ\nيقبل / يرفض","➡️ إرسال\nللإدارة","🏛️ الإدارة\nتراجع وتقرر","✅ النتيجة\nللطالب"].map((step,i,arr)=>(
-              <div key={i} style={{display:"flex",alignItems:"center",gap:8,flex:1}}>
+{[
+  "👨‍🎓 الطالب\nيقدم التبرير",
+  "👨‍🏫 الأستاذ\nيقبل / يرفض",
+  "➡️ إرسال\nللإدارة",
+  "🏛️ الإدارة\nتراجع وتقرر",
+  "👨‍🏫 الأستاذ\nيقرر بعد\nقرار الإدارة",
+  "✅ النتيجة\nللطالب"
+].map((step, i, arr) => (              <div key={i} style={{display:"flex",alignItems:"center",gap:8,flex:1}}>
                 <div style={{textAlign:"center",whiteSpace:"pre-line",lineHeight:1.4}}>{step}</div>
                 {i < arr.length-1 && <div style={{width:2,height:30,background:"var(--primary)",opacity:0.3,flexShrink:0}}/>}
               </div>
