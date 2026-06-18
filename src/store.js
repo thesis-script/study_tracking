@@ -20,7 +20,7 @@ export const USERS = {
     },
   ],
   student: [
-    { email: "2024001@student.univ.dz", password: "1234", studentId: "2024001", name: "رمضان شبين شمس الأصيل", group: "G1", role: "student" },
+    { email: "2024001@student.univ.dz", password: "1234", studentId: "2024001", name: "رمضان سبين شمس الأصيل", group: "G1", role: "student" },
     { email: "2024002@student.univ.dz", password: "1234", studentId: "2024002", name: "بوعيطة فاطمة الزهراء", group: "G1", role: "student" },
     { email: "2024003@student.univ.dz", password: "1234", studentId: "2024003", name: "ضابي سلسبيل نور", group: "G1", role: "student" },
     { email: "2024004@student.univ.dz", password: "1234", studentId: "2024004", name: "جودي شيماء آيت", group: "G1", role: "student" },
